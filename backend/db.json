@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Artigo 01",
+      "author": "Mathias Artur Schulz",
+      "content": "Artigo sobre Vue.js 3 + Framework Quasar"
+    }
+  ]
+}
