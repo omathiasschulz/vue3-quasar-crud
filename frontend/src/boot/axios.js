@@ -9,6 +9,9 @@ import axios from 'axios'
 // for each client)
 const api = axios.create({ baseURL: 'https://api.example.com' })
 
+/**
+ * Inicia o axios junto com a aplicação
+ */
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 

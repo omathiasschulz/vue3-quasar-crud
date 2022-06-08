@@ -17,3 +17,5 @@ Você deve possuir o yarn instalado
 npm install -g @quasar/cli
 
 yarn create quasar
+
+quasar dev
