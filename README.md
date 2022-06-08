@@ -12,14 +12,30 @@ Caso ainda não esteja instalado no seu computador, utilize o seguinte comando:
 
 **Obs:** Você deve possuir o `npm` instalado na sua máquina.
 
-```sh
+```bash
 npm install -g @quasar/cli
 ```
 
 Para rodar o `frontend` utilize o seguinte comando:
 
-```sh
+```bash
 quasar dev
+```
+
+### dependencias
+
+Para instalar as dependências utilize o seguinte comando dentro da pasta `frontend`:
+
+```bash
+yarn
+```
+
+### buildar-aplicativo
+
+Para buildar o frontend do aplicativo e utilizar em produção utilize o seguinte comando:
+
+```bash
+quasar build
 ```
 
 ## backend
@@ -30,12 +46,12 @@ Caso ainda não esteja instalado no seu computador, utilize o seguinte comando:
 
 **Obs:** Você deve possuir o `npm` instalado na sua máquina.
 
-```sh
+```bash
 npm install -g json-server
 ```
 
 Para rodar o `backend` utilize o seguinte comando:
 
-```sh
+```bash
 cd backend && json-server --watch db.json
 ```
