@@ -76,6 +76,10 @@ module.exports = configure(function (ctx) {
       // vitePlugins: [
       //   [ 'package-name', { ..options.. } ]
       // ]
+
+      env: {
+        API_URL: ctx.dev ? 'http://localhost:3000/' : 'https://api.schulz.net.br/',
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
