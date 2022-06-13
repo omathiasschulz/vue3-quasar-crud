@@ -7,12 +7,13 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
-import { api } from 'boot/axios'
+import postsService from 'src/services/posts'
 
 export default defineComponent({
   name: 'IndexPage',
   setup () {
     const posts = ref([])
+    const { get } = postsService()
 
     // ao montar tela realizar a consulta dos artigos
     onMounted(() => {
@@ -24,8 +25,7 @@ export default defineComponent({
      */
     const getPosts = async () => {
       try {
-        const { data } = await api.get('posts')
-        posts.value = data
+        posts.value = await get()
       } catch (error) {
         console.error(error)
       }
