@@ -2,7 +2,10 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', name: 'home', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      { path: '', name: 'home', component: () => import('pages/IndexPage.vue') },
+      { path: 'novo-artigo', name: 'formPost', component: () => import('pages/FormPost.vue') },
+    ],
   },
 
   // Caso não ache a rota informada redireciona para a página not found

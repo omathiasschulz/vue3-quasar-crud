@@ -29,18 +29,6 @@
       "title": "Artigo C",
       "author": "Mathias Artur Schulz",
       "content": "Artigo sobre C"
-    },
-    {
-      "id": 6,
-      "title": "Artigo C#",
-      "author": "Mathias Artur Schulz",
-      "content": "Artigo sobre C#"
-    },
-    {
-      "id": 7,
-      "title": "Artigo C++",
-      "author": "Mathias Artur Schulz",
-      "content": "Artigo sobre C++"
     }
   ]
 }
