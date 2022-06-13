@@ -40,17 +40,18 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 import postsService from 'src/services/posts'
 import { useQuasar } from 'quasar'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'FormPost',
   setup () {
     const $q = useQuasar()
-    const { post } = postsService()
+    const { post, getOne, put } = postsService()
     const router = useRouter()
+    const route = useRoute()
 
     const form = ref({
       title: '',
@@ -58,10 +59,29 @@ export default defineComponent({
       content: '',
     })
 
+    onMounted(async () => {
+      if (!route.params.id) return
+      getPost(route.params.id)
+    })
+
+    const getPost = async (id) => {
+      try {
+        const response = await getOne(id)
+        form.value = response
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
     const onSubmit = async () => {
       try {
-        await post(form.value)
-        $q.notify({ message: 'Registro inserido com sucesso!', icon: 'check', color: 'positive' })
+        if (form.value.id) {
+          await put(form.value)
+          $q.notify({ message: 'Registro atualizado com sucesso!', icon: 'check', color: 'positive' })
+        } else {
+          await post(form.value)
+          $q.notify({ message: 'Registro inserido com sucesso!', icon: 'check', color: 'positive' })
+        }
         router.push({ name: 'home' })
       } catch (error) {
         console.error(error)

@@ -5,6 +5,7 @@ const routes = [
     children: [
       { path: '', name: 'home', component: () => import('pages/IndexPage.vue') },
       { path: 'novo-artigo', name: 'formPost', component: () => import('pages/FormPost.vue') },
+      { path: 'novo-artigo/:id?', name: 'formPost', component: () => import('pages/FormPost.vue') },
     ],
   },
 

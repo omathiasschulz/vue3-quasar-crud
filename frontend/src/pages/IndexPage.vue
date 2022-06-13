@@ -8,7 +8,8 @@
         <q-btn color="primary" label="Novo" :to="{ name: 'formPost' }"></q-btn>
       </template>
       <template v-slot:body-cell-actions="props">
-        <q-td :props="props">
+        <q-td :props="props" class="q-gutter-sm">
+          <q-btn icon="edit" color="secondary" dense size="sm" @click="handlePutPosts(props.row.id)" />
           <q-btn icon="delete" color="negative" dense size="sm" @click="handleDeletePosts(props.row.id)" />
         </q-td>
       </template>
@@ -20,6 +21,7 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import postsService from 'src/services/posts'
 import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'IndexPage',
@@ -27,6 +29,7 @@ export default defineComponent({
     const posts = ref([])
     const { get, remove } = postsService()
     const $q = useQuasar()
+    const router = useRouter()
 
     // ao montar tela realizar a consulta dos artigos
     onMounted(() => {
@@ -61,6 +64,10 @@ export default defineComponent({
       }
     }
 
+    const handlePutPosts = async (id) => {
+      router.push({ name: 'formPost', params: { id } })
+    }
+
     const columns = [
       {
         name: 'id',
@@ -91,7 +98,7 @@ export default defineComponent({
       },
     ]
 
-    return { posts, columns, handleDeletePosts }
+    return { posts, columns, handleDeletePosts, handlePutPosts }
   },
 })
 </script>

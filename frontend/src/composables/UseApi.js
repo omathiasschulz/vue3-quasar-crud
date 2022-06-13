@@ -14,6 +14,15 @@ export default function useApi (url) {
     }
   }
 
+  const getOne = async (id) => {
+    try {
+      const { data } = await api.get(`${url}/${id}`)
+      return data
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
   const post = async (body) => {
     try {
       const { data } = await api.post(url, body)
@@ -43,6 +52,7 @@ export default function useApi (url) {
 
   return {
     get,
+    getOne,
     post,
     put,
     remove,
