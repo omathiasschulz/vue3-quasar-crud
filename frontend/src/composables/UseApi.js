@@ -8,8 +8,6 @@ export default function useApi (url) {
   const get = async () => {
     try {
       const { data } = await api.get(url)
-      console.log('data')
-      console.log(data)
       return data
     } catch (error) {
       throw new Error(error)
@@ -34,9 +32,9 @@ export default function useApi (url) {
     }
   }
 
-  const remove = async (body) => {
+  const remove = async (id) => {
     try {
-      const { data } = await api.put(`${url}/${body.id}`)
+      const { data } = await api.delete(`${url}/${id}`)
       return data
     } catch (error) {
       throw new Error(error)
